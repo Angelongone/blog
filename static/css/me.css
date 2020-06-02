@@ -63,3 +63,14 @@ body{
     max-width: 60em !important;
     margin: auto !important;
 }
+
+
+/* positon */
+.m-fixed{
+    position: fixed !important;
+}
+
+.m-right-bottom{
+    bottom: 0 !important;
+    right: 0 !important;
+}

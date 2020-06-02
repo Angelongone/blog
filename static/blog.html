@@ -6,6 +6,8 @@
     <title>首页</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="./css/me.css">
+    <link rel="stylesheet" href="./css/typo.css">
+    <link rel="stylesheet" href="./lib/tocbot/tocbot.css">
 </head>
 <body>
 
@@ -59,7 +61,8 @@
             <h2 class="ui center aligned header">springboot学习心得</h2>
             <br>
 
-            <div id="content" class="m-padded-lr m-padded-tb-large">
+            <div id="content" class=" js-toc-content typo typo-selection m-padded-lr m-padded-tb-large">
+                <h1>岑共</h1>
                 <p>是地方考虑方法地方的就福克斯地方觉得开始案件的；撒人偶尔微软诶微软胎儿空调觉得考虑风格的的附近开始大家疯狂价格发达发卡就是偶尔进入</p>
                 <h2>1</h2>
                 <p>附近但是开发觉得开始附近看到就是卡就；哦玩儿偶然方式的加快推进偶尔特发卡是；欺骗而额范德萨开发建设的合格</p>
@@ -78,11 +81,26 @@
         <div class="ui attached positive message">
             博客信息
         </div>
-        <div class="ui bottom attached segment">
+        <div id="comment-container" class="ui bottom attached segment">
             留言区
         </div>
     </div>
 </div>    
+
+<div class="m-padded-tb m-fixed m-right-bottom">
+    <div class="ui vertical icon buttons ">
+        <button type="button" class="ui toc teal button">目录</button>
+        <a href="#comment-container" class="ui teal button">留言</a>
+        <a href="#" class="ui icon button"><i class="chevron up icon"></i></a>
+    </div>
+</div>
+
+<div class="ui toc-container flowing popup transition hidden">
+    生成目录
+    <ol class="js-toc">
+
+    </ol>
+</div>
 
 <!-- 底部 -->
 <footer class="ui inverted segment" m-padded-tb-massive>
@@ -117,5 +135,23 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="./lib/tocbot/tocbot.min.js"></script>
+
+
+<script>
+    $('.toc.button').popup({
+        popup: $('.toc-container.popup'),
+        on: 'click',
+        position: 'left center'
+    });
+
+    tocbot.init({
+        tocSelector: '.js-toc',
+        contentSelector: '.js-toc-content',
+        headingSelector: 'h1,h2,h3',
+    });
+</script>
 </body>
+
+
 </html>
