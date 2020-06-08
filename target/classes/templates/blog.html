@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/me.css">
-    <link rel="stylesheet" href="../static/css/typo.css">
-    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/static/css/me.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/static/css/typo.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{static/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../static/css/editormd.preview.css" th:href="@{/css/editormd.preview.css}"/>
 </head>
 <body>
 
@@ -16,11 +17,11 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header">Angleong</h2>
-            <a href="#" class="item"><i class="home icon"></i>首页</a>
-            <a href="#" class="item"><i class="idea icon"></i>分类</a>
-            <a href="#" class="item"><i class="tags icon"></i>标签</a>
-            <a href="#" class="item"><i class="clone icon"></i>归档</a>
-            <a href="#" class="item"><i class="info icon"></i>关于我</a>
+            <a href="./index.html" class="item"><i class="home icon"></i>首页</a>
+            <a href="./type.html" class="item"><i class="idea icon"></i>分类</a>
+            <a href="./tags.html" class="item"><i class="tags icon"></i>标签</a>
+            <a href="./archives.html" class="item"><i class="clone icon"></i>归档</a>
+            <a href="./about.html" class="item"><i class="info icon"></i>关于我</a>
             <div class="right item">
                 <div class="ui icon inverted transparent input">
                     <input type="text" placeholder="Search...">
@@ -48,12 +49,12 @@
                 </div>
             </div> 
         </div>
-        <div class="ui attached segment">
-            <!-- 图片 -->
+        <!--<div class="ui attached segment">
+            &lt;!&ndash; 图片 &ndash;&gt;
             <img src="https://unsplash.it/800/450?image=1005" alt="" class="ui fluid rounded image">
         </div>
         <div class="ui attached segment">
-            <!-- 内容 -->
+            &lt;!&ndash; 内容 &ndash;&gt;
             <div class="ui right aligned basic segment">
                 <div class="ui orange label">原创</div>
             </div>
@@ -66,9 +67,15 @@
                 <p>是地方考虑方法地方的就福克斯地方觉得开始案件的；撒人偶尔微软诶微软胎儿空调觉得考虑风格的的附近开始大家疯狂价格发达发卡就是偶尔进入</p>
                 <h2>1</h2>
                 <p>附近但是开发觉得开始附近看到就是卡就；哦玩儿偶然方式的加快推进偶尔特发卡是；欺骗而额范德萨开发建设的合格</p>
+            </div>-->
+        <div class="ui segment">
+            <div id="test-markdown-view">
+                <!-- Server-side output Markdown text -->
+                <textarea style="display:none;" th:text="${blogtext}"></textarea>
             </div>
+        </div>
 
-            <!-- 标签 -->
+        <!-- 标签 -->
             <div class="m-padded-lr">
                 <div class="ui basic teal left pointing label">方法论</div>
             </div>
@@ -100,7 +107,7 @@
                     <h3 class="ui dividing header">Comments</h3>
                     <div class="comment">
                       <a class="avatar">
-                        <img src="https://unsplash.it/800/450?image=1005">
+                        <img src="https://unsplash.it/800/450?image=1005" th:href="@{https://unsplash.it/800/450?image=1005}">
                       </a>
                       <div class="content">
                         <a class="author">Matt</a>
@@ -117,9 +124,9 @@
                     </div>
                     <div class="comment">
                       <a class="avatar">
-                        <img src="https://unsplash.it/800/450?image=1005">
+                        <img src="https://unsplash.it/800/450?image=1005" th:href="@{https://unsplash.it/800/450?image=1005}">
                       </a>
-                      <div class="content">
+                      <div class="content" >
                         <a class="author">Elliot Fu</a>
                         <div class="metadata">
                           <span class="date">Yesterday at 12:30AM</span>
@@ -134,7 +141,7 @@
                       <div class="comments">
                         <div class="comment">
                           <a class="avatar">
-                            <img src="https://unsplash.it/800/450?image=1005">
+                            <img src="https://unsplash.it/800/450?image=1005" th:href="@{https://unsplash.it/800/450?image=1005}">
                           </a>
                           <div class="content">
                             <a class="author">Jenny Hess</a>
@@ -241,10 +248,12 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-<script src="../static/lib/tocbot/tocbot.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js" th:href="@{https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js" th:href="@{https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js}"></script>
+<script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+<script src="../static/lib/editormd/editormd.js" th:src="@{/lib/editormd/editormd.js}"></script>
+<script src="../static/lib/editormd/lib/marked.min.js" th:src="@{/lib/editormd/lib/marked.min.js}"></script>
+<script src="../static/lib/editormd/lib/prettify.min.js" th:src="@{/lib/editormd/lib/prettify.min.js}"></script>
 
 <script>
     $('.toc.button').popup({
@@ -257,6 +266,14 @@
         tocSelector: '.js-toc',
         contentSelector: '.js-toc-content',
         headingSelector: 'h1,h2,h3',
+    });
+
+    $(function() {
+	    var testView = editormd.markdownToHTML("test-markdown-view", {
+            // markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
+            // htmlDecode : true,  // Enable / disable HTML tag encode.
+            // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+        });
     });
 </script>
 </body>

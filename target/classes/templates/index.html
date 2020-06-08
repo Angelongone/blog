@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="_fragments :: head(~{::title})">
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
@@ -14,11 +14,11 @@
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui teal header">Angleong</h2>
-                <a href="#" class="item"><i class="home icon"></i>首页</a>
-                <a href="#" class="item"><i class="idea icon"></i>分类</a>
-                <a href="#" class="item"><i class="tags icon"></i>标签</a>
-                <a href="#" class="item"><i class="clone icon"></i>归档</a>
-                <a href="#" class="item"><i class="info icon"></i>关于我</a>
+                <a href="./index.html" class="item"><i class="home icon"></i>首页</a>
+                <a href="./type.html" class="item"><i class="idea icon"></i>分类</a>
+                <a href="./tags.html" class="item"><i class="tags icon"></i>标签</a>
+                <a href="./archives.html" class="item"><i class="clone icon"></i>归档</a>
+                <a href="./about.html" class="item"><i class="info icon"></i>关于我</a>
                 <div class="right item">
                     <div class="ui icon inverted transparent input">
                         <input type="text" placeholder="Search...">
@@ -51,8 +51,7 @@
                         <div class="ui padded vertical segment m-padded-tb-big">
                             <div class="ui grid stackable">
                                 <div class="eleven wide column">
-                                    <h3 class="ui header">你真的理解什么是财富自由吗？</h3>
-                                    <p>疯狂的发动机开发就的附近肯德基疯狂的地方的时间福克斯大家疯狂是地方健康时间地方。。。。。</p>
+                                    <h3 class="ui header" th:text="${blogname}"></h3>
                                     <div class="ui grid">
                                         <div class="twelve wide column">
                                             <div class="ui horizontal link list">
