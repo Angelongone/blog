@@ -52,12 +52,33 @@ insert into t_user(username,password,email,qq) values("Angelong","123","123456.@
 | typename | varchar(20) | 唯一，不为空 |
 | tagid    | int         | 不为空       |
 
+```mysql
+create table t_type(
+typeid int primary key auto_increment,
+typename varchar(20) unique not null,
+tagid int not null);
+
+insert into t_type(typename,tagid) values("编程",1);
+```
+
+
+
 #### 标签表：t_tag
 
 | 字段名  | 数据类型    | 字段要求     |
 | ------- | ----------- | ------------ |
 | tagid   | int         | 主键，自增长 |
 | tagname | varchar(20) | 唯一，不为空 |
+
+```mysql
+create table t_tag(
+tagid int primary key auto_increment,
+tagname varchar(20) unique not null);
+
+insert into t_tag(tagname) values("编程");
+```
+
+
 
 #### 博客表：t_blog
 
@@ -71,7 +92,21 @@ insert into t_user(username,password,email,qq) values("Angelong","123","123456.@
 | createtime | timestamp   | null         |
 | bloguser   | int         | 不为空       |
 | publish    | int         | 不为空       |
-|            |             |              |
+| userid     | int         | 不为空       |
+
+```mysql
+create table t_blog(
+blogid int  primary key auto_increment,
+blogname varchar(20) not null,
+blogtext text not null,
+typeid int not null,
+tagid int not null,
+userid int not null,
+createtime timestamp,
+publish int  not null);
+
+insert into t_blog(blogname,blogtext,typeid,tagid,userid,publish) values("第一篇文章","# 第一篇文章",1,1,1,1);
+```
 
 
 

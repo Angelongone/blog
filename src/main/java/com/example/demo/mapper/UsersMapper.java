@@ -5,6 +5,7 @@ import com.example.demo.bean.Users;
 import org.apache.catalina.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper
@@ -18,5 +19,8 @@ public interface UsersMapper {
     void publishBlog(String blogname,String blogtext,String typeid,String tagid,int userid,int publish);
 
 //    博客列表
-    List<Blogs> getAllBlog();
+    ArrayList<Blogs> getAllBlog();
+
+//    通过id查询博客内容
+    String getBlogText(Long id);
 }
