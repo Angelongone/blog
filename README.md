@@ -103,7 +103,9 @@ typeid int not null,
 tagid int not null,
 userid int not null,
 createtime timestamp,
-publish int  not null);
+publish int  not null,
+foreign key(typeid) references t_type(typeid),
+foreign key(tagid) references t_tag(tagid));
 
 insert into t_blog(blogname,blogtext,typeid,tagid,userid,publish) values("第一篇文章","# 第一篇文章",1,1,1,1);
 ```

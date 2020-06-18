@@ -3,11 +3,11 @@ package com.example.demo.bean;
 import java.util.Date;
 
 public class Blogs {
-    private String blogid;
+    private int blogid;
     private String blogname;
     private String blogtext;
-    private String  typeid;
-    private String tagid;
+    private int typeid;
+    private int tagid;
     private int userid;
     private Date createtime;
     private int publish;
@@ -15,21 +15,11 @@ public class Blogs {
     private Types types;
     private Tags tags;
 
-
-
-    public void setTypeid(String typeid) {
-        this.typeid = typeid;
-    }
-
-    public void setTagid(String tagid) {
-        this.tagid = tagid;
-    }
-
-    public String getBlogid() {
+    public int getBlogid() {
         return blogid;
     }
 
-    public void setBlogid(String blogid) {
+    public void setBlogid(int blogid) {
         this.blogid = blogid;
     }
 
@@ -47,6 +37,22 @@ public class Blogs {
 
     public void setBlogtext(String blogtext) {
         this.blogtext = blogtext;
+    }
+
+    public int getTypeid() {
+        return typeid;
+    }
+
+    public void setTypeid(int typeid) {
+        this.typeid = typeid;
+    }
+
+    public int getTagid() {
+        return tagid;
+    }
+
+    public void setTagid(int tagid) {
+        this.tagid = tagid;
     }
 
     public int getUserid() {
@@ -92,11 +98,11 @@ public class Blogs {
     @Override
     public String toString() {
         return "Blogs{" +
-                "blogid='" + blogid + '\'' +
+                "blogid=" + blogid +
                 ", blogname='" + blogname + '\'' +
                 ", blogtext='" + blogtext + '\'' +
-                ", typeid='" + typeid + '\'' +
-                ", tagid='" + tagid + '\'' +
+                ", typeid=" + typeid +
+                ", tagid=" + tagid +
                 ", userid=" + userid +
                 ", createtime=" + createtime +
                 ", publish=" + publish +

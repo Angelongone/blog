@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{static/css/me.css}">
+</head>
+<body>
+
+<!-- 导航 -->
+<nav class="ui inverted segment m-padded-td-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header">Angleong</h2>
+            <a href="./index.html" class="item"><i class="home icon"></i>首页</a>
+            <a href="./type.html" class="item"><i class="idea icon"></i>分类</a>
+            <a href="./tags.html" class="item"><i class="tags icon"></i>标签</a>
+            <a href="./archives.html" class="item"><i class="clone icon"></i>归档</a>
+            <a href="./about.html" class="item"><i class="info icon"></i>关于我</a>
+            <div class="right item">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- 中间部分 -->
+<div class="m-container-small m-padded-tb-large">
+    <div class="ui container">
+        <!-- hider -->
+        <div class="ui top attached segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui teal header">标签</h3>
+                </div>
+
+                <div class="right aligned column">
+                    共 <h2 class="ui orange header m-inline-block">24</h2>个
+                </div>
+            </div>
+        </div>
+
+        <div class="ui attached segment" >
+            <div class="ui labeled button m-margin-tb-tiny" th:each="tag : ${tag}">
+                <a href="#" class="ui basic teal button" th:text="${tag.tagname}">思考与感悟</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+        </div>
+
+        
+
+        <div class="ui teal segment">
+            <form action="/addTag" method="POST" class="ui form">
+                <div class="ui grid">
+                    <div class="twelve wide column">
+                        <input type="text" name="tagname">
+                    </div>
+                    <div class="four wide column">
+                        <div class="ui submit button"><input type="submit" value="添加"></div>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <div class="grid">
+                <table  class="ui celled table">
+                <thead>
+                    <tr>
+                        <th class="twelve wide column ">名称</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody th:each="tag : ${tag}">
+                    <tr>
+                        <td th:text="${tag.tagname}">编程</td>
+                        <td>
+                            <a href="#" th:href="@{/deleteTag/{id}(id = ${tag.tagid})}" class="ui button negative ">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>    
+
+<br>
+<br>
+<br>
+
+<!-- 底部 -->
+<footer class="ui inverted segment" m-padded-tb-massive>
+    <div class="ui center aligned container">
+        <dig class="ui inverted divided grid">
+            <div class="three wide column">
+                <img src="../static/images/wechat.jpg" class="ui rounded image">
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email:2691827911@qq.com</a>
+                    <a href="#" class="item">QQ:2691827911</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header">Blog</h4>
+                <p>这是我的个人博客，用于学习、交流和复习;我会分享关于我学习的路程和学习笔记，记录每一天的进步。</p>
+            </div>
+        </dig>
+        <div class="ui inverted section divider"></div>
+        <p>Copyright @ 2019-2020 Angelong Designed by Angelong</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+</body>
+</html>

@@ -1,6 +1,8 @@
 package com.example.demo.Controller;
 
 import com.example.demo.bean.Blogs;
+import com.example.demo.bean.Types;
+import com.example.demo.mapper.TypeMapper;
 import com.example.demo.mapper.UsersMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class Temp {
 
     @Resource
     UsersMapper usersMapper;
+
 
     @RequestMapping("/text")
     public String temp(@RequestParam(value = "content") String text,
@@ -65,4 +69,7 @@ public class Temp {
     public String inputb(){
         return "admin/blogs-input";
     }
+
+
+
 }

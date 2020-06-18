@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意：UserDao和UserDao.xml是配对的 路径要一致-->
+<mapper namespace="com.example.demo.mapper.TypeMapper">
+<!--    查询所有-->
+    <select id="getAllType" resultType="com.example.demo.bean.Types">
+        select * from t_type;
+    </select>
+
+<!--    添加类型-->
+    <insert id="addType" parameterType="String">
+        insert into t_type(typename,tagid) values(#{typename},1)
+    </insert>
+
+<!--    删除类型-->
+    <delete id="deleteType" parameterType="int">
+        delete from t_type where typeid = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意：UserDao和UserDao.xml是配对的 路径要一致-->
+<mapper namespace="com.example.demo.mapper.TagMapper">
+<!--    查询所有-->
+    <select id="getAllTag" resultType="com.example.demo.bean.Tags">
+        select * from t_tag;
+    </select>
+
+<!--    添加类型-->
+    <insert id="addTag" parameterType="String">
+        insert into t_tag(tagname) values(#{tagname})
+    </insert>
+
+<!--    删除类型-->
+    <delete id="deleteTag" parameterType="int">
+        delete from t_tag where tagid = #{id}
+    </delete>
+</mapper>

@@ -1,6 +1,10 @@
 package com.example.demo.Controller;
 
 import com.example.demo.bean.Blogs;
+import com.example.demo.bean.Tags;
+import com.example.demo.bean.Types;
+import com.example.demo.mapper.TagMapper;
+import com.example.demo.mapper.TypeMapper;
 import com.example.demo.mapper.UsersMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +26,18 @@ public class CreateBlog {
     @Resource
     UsersMapper usersMapper;
 
+    @Resource
+    TypeMapper typeMapper;
+
+    @Resource
+    TagMapper tagMapper;
+
 
     @RequestMapping("/blog")
     public String publishBlog(@RequestParam(value = "title") String blogname,
                               @RequestParam(value = "content") String blogtext,
-                              @RequestParam(value = "type") String typeid,
-                              @RequestParam(value = "tag") String tagid,
+                              @RequestParam(value = "type") int typeid,
+                              @RequestParam(value = "tag") int tagid,
                               Model model){
         model.addAttribute("blogtext",blogtext);
         usersMapper.publishBlog(blogname,blogtext,typeid,tagid,1,1);
@@ -45,7 +55,11 @@ public class CreateBlog {
     @RequestMapping("/index")
     public String indxe(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         ArrayList<Blogs> allBlog = usersMapper.getAllBlog();
+        List<Tags> allTag = tagMapper.getAllTag();
+        List<Types> allType = typeMapper.getAllType();
         model.addAttribute("blogs",allBlog);
+        model.addAttribute("type",allType);
+        model.addAttribute("tag",allTag);
         return "index";
     }
 
